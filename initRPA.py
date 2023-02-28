@@ -8,13 +8,8 @@ pyperclip.copy(txt)
 
 # pyautogui.getWindowsWithTitle("Finance 2022 - Login - Appsheet")[0].maximize()
 
-pa.moveTo(x=1469, y=60)
+pa.moveTo(x=1200, y=361, duration=3)
 
-
-
-
-pa.tripleClick()
-
-
-pa.hotkey('ctrl', 'v')
+pa.click()
+pa.write("soup kradukmoo")
 

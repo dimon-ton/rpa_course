@@ -2,6 +2,7 @@ from time import sleep
 import webbrowser
 import pyperclip
 import pyautogui as pa
+from datetime import datetime
 
 txt = "อุณหภูมิจังหวัดระยอง"
 pyperclip.copy(txt)
@@ -14,18 +15,14 @@ pa.hotkey('ctrl', 'v')
 pa.hotkey('enter')
 
 # set active window to save screenshot
-windows = pa.getWindowsWithTitle('Google')
+sleep(1)
 
-if len(windows) > 0:
-    window = windows[0]
-    window.activate()
-    sleep(1)
-    screenshot = window.screenshot
-    screenshot.save()
-    
-else:
-    print("Window not found")
+region = (210,300,728,406)
+d_name = datetime.now().strftime("%Y%m%d_%H%M%S")
+pa.screenshot('{}_{}.png'.format(d_name, txt), region=region)
 
+sleep(3)
+pa.getWindowsWithTitle("ค้นหาด้วย Google")[0].close()
 
 
 
